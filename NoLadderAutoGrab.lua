@@ -1,6 +1,6 @@
 GameVersion = "3_68"
-ModeName = "LaddersWontGrab"
-Author = "Jackty89/Bodie420"
+ModeName = "NoLadderAutoGrab"
+Author = "Jackty89"
 
 NMS_MOD_DEFINITION_CONTAINER = 
 {
