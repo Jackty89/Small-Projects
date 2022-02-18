@@ -1,4 +1,4 @@
-GameVersion = "3_71"
+GameVersion = "3_80"
 ModName = "ExtendedExocraftAndShipScanner"
 
 --Scanner lvl 0 = base scanner, lvl 1 = 1st uprgade, lvl 2 = 2nd uprgade

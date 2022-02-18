@@ -1,4 +1,4 @@
-GameVersion = "3_68"
+GameVersion = "3_80"
 ModeName = "InstantTextDisplay"
 Author = "Jackty89"
 

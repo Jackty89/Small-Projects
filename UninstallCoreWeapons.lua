@@ -1,4 +1,4 @@
-GameVersion = "3_70"
+GameVersion = "3_80"
 ModeName = "UninstallCoreWeapons"
 Author = "Jackty89"
 

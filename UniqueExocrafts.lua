@@ -1,4 +1,4 @@
-GameVersion = "3_71"
+GameVersion = "3_80"
 ModName = "UniqueExoCrafts"
 Description = "A small mod that make exocraft faster but also stand out from eachother"
 

@@ -1,4 +1,4 @@
-GameVersion = "3_70"
+GameVersion = "3_80"
 ModeName = "MaxUpgradeFreighterSlotAllClasses"
 Author = "Jackty89"
 Description = "Tiny mod that allows any class of freighter to be upgraded to 48/21"

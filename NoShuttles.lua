@@ -1,4 +1,4 @@
-GameVersion = "3_75"
+GameVersion = "3_80"
 ModeName = "NoShuttles"
 Author = "Jackty89"
 
