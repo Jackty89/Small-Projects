@@ -22,7 +22,7 @@ NMS_MOD_DEFINITION_CONTAINER =
                         {
 							["MATH_OPERATION"] 		= "*",
 							["REPLACE_TYPE"] 		= "ALL",
-                            ["VALUE_CHANGE_TABLE"] = 
+                            ["VALUE_CHANGE_TABLE"] =
                             {
                                 {"BuildingUpgradeTimeInSeconds", Multiplier},
                                 {"BuildingFreeUpgradeTimeInSeconds", Multiplier},
@@ -31,7 +31,7 @@ NMS_MOD_DEFINITION_CONTAINER =
                             }
                         },
                         {
-                            ["VALUE_CHANGE_TABLE"] = 
+                            ["VALUE_CHANGE_TABLE"] =
                             {
                                 {"SettlementMiniExpeditionSuccessChance", "0.999999"}
                             }
