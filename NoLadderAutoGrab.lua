@@ -1,4 +1,4 @@
-GameVersion = "3_80"
+GameVersion = "3_81"
 ModeName = "NoLadderAutoGrab"
 Author = "Jackty89"
 

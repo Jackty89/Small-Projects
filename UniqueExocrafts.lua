@@ -1,6 +1,9 @@
-GameVersion = "3_80"
+GameVersion = "3_81"
 ModName = "UniqueExoCrafts"
 Description = "A small mod that make exocraft faster but also stand out from eachother"
+
+GCTechnologyTablePath = "METADATA\\REALITY\\TABLES\\NMS_REALITY_GCTECHNOLOGYTABLE.MBIN"
+VehicleGlobalsPath = "GCVEHICLEGLOBALS.GLOBAL.MBIN"
 
 RoamerSpeed = "40"
 NomadSpeed = "50"
@@ -74,25 +77,25 @@ VehicleBoostFuelRateSurvival = "2"
 
 
 -- HOVBERCraft is an unreleased vehcile this is NOT the Nomad
-NMS_MOD_DEFINITION_CONTAINER = 
+NMS_MOD_DEFINITION_CONTAINER =
 {
 ["MOD_FILENAME"] 			= ModName..GameVersion..".pak",
-["MOD_DESCRIPTION"]			= Description,   
+["MOD_DESCRIPTION"]			= Description,
 ["MOD_AUTHOR"]				= "Jackty89",
 ["NMS_VERSION"]				= GameVersion,
-["MODIFICATIONS"] 			= 
+["MODIFICATIONS"] 			=
 	{
 		{
-			["MBIN_CHANGE_TABLE"] 	= 
+			["MBIN_CHANGE_TABLE"] 	=
 			{
 				{
-					["MBIN_FILE_SOURCE"] 	= "METADATA\REALITY\TABLES\NMS_REALITY_GCTECHNOLOGYTABLE.MBIN",
-					["EXML_CHANGE_TABLE"] 	= 
+					["MBIN_FILE_SOURCE"] 	= GCTechnologyTablePath,
+					["EXML_CHANGE_TABLE"] 	=
 					{
 						{
 							["SPECIAL_KEY_WORDS"] = {"ID","MECH_LASER"},
 							["PRECEDING_KEY_WORDS"] = {"StatBonuses","StatsTypes"},
-							["VALUE_CHANGE_TABLE"] 	= 
+							["VALUE_CHANGE_TABLE"] 	=
 							{
 								--LINE 18848
 								{"Bonus", MechSuitLaserDamange}
@@ -100,7 +103,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 						},
 						{
 							["SPECIAL_KEY_WORDS"] = {"ID","MECH_GUN"},
-							["VALUE_CHANGE_TABLE"] 	= 
+							["VALUE_CHANGE_TABLE"] 	=
 							{
 								--Line 19093
 								{"Bonus", MechSuitCanonDamange}
@@ -108,13 +111,13 @@ NMS_MOD_DEFINITION_CONTAINER =
 						}
 					}
 
-				},                
-				{ 
-					["MBIN_FILE_SOURCE"] 	= "GCVEHICLEGLOBALS.GLOBAL.MBIN",
-					["EXML_CHANGE_TABLE"] 	= 
+				},
+				{
+					["MBIN_FILE_SOURCE"] 	= VehicleGlobalsPath,
+					["EXML_CHANGE_TABLE"] 	=
 					{
                         {
-							["VALUE_CHANGE_TABLE"] 	= 
+							["VALUE_CHANGE_TABLE"] 	=
 							{
 								{"MechJetpackForce", MechSuitJPForce}, --Original 70
                                 {"MechJetpackMaxSpeed", MechSuitJPMaxSpeed},
@@ -129,7 +132,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 						},
                         {
 							["SPECIAL_KEY_WORDS"] = {"Name","MECH"},
-							["VALUE_CHANGE_TABLE"] 	= 
+							["VALUE_CHANGE_TABLE"] 	=
 							{
 								{"TopSpeedForward", MechSuitWalkingSpeed}, 	-- Original "2"
 								{"VehicleBoostForce", MechVehicleBoostForce},
@@ -143,7 +146,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 						},
                         {
 							["SPECIAL_KEY_WORDS"] = {"Name","BIKE"},
-							["VALUE_CHANGE_TABLE"] 	= 
+							["VALUE_CHANGE_TABLE"] 	=
 							{
 								{"TopSpeedForward", NomadSpeed}, 	-- Original "18"
                                 {"TopSpeedReverse", NomadSpeed},
@@ -157,7 +160,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 						},
 						{
 							["SPECIAL_KEY_WORDS"] = {"Name","WHEELEDBIKE"},
-							["VALUE_CHANGE_TABLE"] 	= 
+							["VALUE_CHANGE_TABLE"] 	=
 							{
 								{"TopSpeedForward", PilgrimSpeed}, 	-- Original "18"
                                 {"TopSpeedReverse", PilgrimSpeed},
@@ -172,7 +175,7 @@ NMS_MOD_DEFINITION_CONTAINER =
                         {
 
                             ["SPECIAL_KEY_WORDS"] = {"Name","MED_BUGGY"},
-							["VALUE_CHANGE_TABLE"] 	= 
+							["VALUE_CHANGE_TABLE"] 	=
 							{
 								{"TopSpeedForward", RoamerSpeed}, 	-- Original "16"
                                 {"TopSpeedReverse", RoamerSpeed},
@@ -187,7 +190,7 @@ NMS_MOD_DEFINITION_CONTAINER =
                         {
 
                             ["SPECIAL_KEY_WORDS"] = {"Name","TRUCK"},
-							["VALUE_CHANGE_TABLE"] 	= 
+							["VALUE_CHANGE_TABLE"] 	=
 							{
 								{"TopSpeedForward", ColossusSpeed}, 	-- Original "12"
                                 {"TopSpeedReverse", ColossusSpeed},
@@ -201,7 +204,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 						},
                         {
                             ["SPECIAL_KEY_WORDS"] = {"Name","SUBMARINE" },
-						    ["VALUE_CHANGE_TABLE"] 	= 
+						    ["VALUE_CHANGE_TABLE"] 	=
 							{
 								{"UnderwaterEngineMaxSpeed", NautilonSpeed}, 	-- Original "15"
 								{"UnderwaterEnginePower", NautilonUnderwaterEnginePower},

@@ -1,9 +1,12 @@
-GameVersion = "3_80"
+GameVersion = "3_81"
 ModName = "ExtendedExocraftAndShipScanner"
+
+VehicleScanTablePath = "METADATA\\SIMULATION\\SCANNING\\VEHICLESCANTABLE.MBIN"
+BuildingGlobalsPath = "GCBUILDINGGLOBALS.GLOBAL.MBIN"
 
 --Scanner lvl 0 = base scanner, lvl 1 = 1st uprgade, lvl 2 = 2nd uprgade
 ----Exocraft can now scan for TradePosts with scanner lvl2
-AddCrashedShipExoCraft = 
+AddCrashedShipExoCraft =
 [[
 	<Property value="GcVehicleScanTableEntry.xml">
 		<Property name="ScanList">
@@ -16,7 +19,7 @@ AddCrashedShipExoCraft =
 		<Property name="Icon" value="TkTextureResource.xml">
 			<Property name="Filename" value="TEXTURES\UI\HUD\ICONS\MISSIONS\MISSION.SHIP.DDS" />
 		</Property>
-	</Property> 
+	</Property>
 ]]
 
 --Exocraft can now scan for TradePosts with scanner lvl0
@@ -353,20 +356,20 @@ AddedScanEventsExoCraft = AddCrashedShipExoCraft..AddCrashedFreighterExoCraft..A
 				AddHarvesterExoCraft..AddObservatoryExoCraft..AddRadioTowerExoCraft..AddSettlementExoCraft..AddTradingPostExoCraft
 				-- ..AddPortalExoCraft
 
-NMS_MOD_DEFINITION_CONTAINER = 
+NMS_MOD_DEFINITION_CONTAINER =
 {
 ["MOD_FILENAME"] 			= ModName..GameVersion..".pak",
-["MOD_DESCRIPTION"]			= "",   
+["MOD_DESCRIPTION"]			= "",
 ["MOD_AUTHOR"]				= "Jackty89",
 ["NMS_VERSION"]				= GameVersion,
-["MODIFICATIONS"] 			= 
+["MODIFICATIONS"] 			=
 	{
 		{
-			["MBIN_CHANGE_TABLE"] 	= 
+			["MBIN_CHANGE_TABLE"] 	=
 			{
-				{ 
-					["MBIN_FILE_SOURCE"] 	= "METADATA\SIMULATION\SCANNING\VEHICLESCANTABLE.MBIN",
-					["EXML_CHANGE_TABLE"] 	= 
+				{
+					["MBIN_FILE_SOURCE"] 	= VehicleScanTablePath,
+					["EXML_CHANGE_TABLE"] 	=
 					{
 						{
 							["PRECEDING_KEY_WORDS"] = {"VehicleScanTable"},
@@ -375,9 +378,9 @@ NMS_MOD_DEFINITION_CONTAINER =
 						}
           }
 				},
-        { 
-					["MBIN_FILE_SOURCE"] 	= "GCBUILDINGGLOBALS.GLOBAL.MBIN",
-					["EXML_CHANGE_TABLE"] 	= 
+        {
+					["MBIN_FILE_SOURCE"] 	= BuildingGlobalsPath,
+					["EXML_CHANGE_TABLE"] 	=
 					{
 						{
               ["VALUE_CHANGE_TABLE"] =
@@ -389,17 +392,6 @@ NMS_MOD_DEFINITION_CONTAINER =
 						}
           }
 				}
-				-- {
-				-- 	["MBIN_FILE_SOURCE"] 	= "METADATA\SIMULATION\SCANNING\SCANEVENTTABLEVEHICLE.MBIN",
-				-- 	["EXML_CHANGE_TABLE"] 	= 
-				-- 	{
-				-- 		{
-				-- 			["PRECEDING_KEY_WORDS"] = {"Events"},
-				-- 			["LINE_OFFSET"] 		= "+0",
-				-- 			["ADD"]	= AddPortalEventTableVehicles
-				-- 		}
-				-- 	}
-        -- }
       }
     }
   }

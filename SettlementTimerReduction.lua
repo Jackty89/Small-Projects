@@ -1,6 +1,8 @@
-GameVersion = "3_80"
+GameVersion = "3_81"
 ModeName = "SettlementTimerReduction"
 Author = "Jackty89"
+
+SettlementGlobalsPath = "GCSETTLEMENTGLOBALS.MBIN"
 
 Multiplier = "0.1"
 
@@ -16,7 +18,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 			["MBIN_CHANGE_TABLE"] 	=
 			{
                 {
-					["MBIN_FILE_SOURCE"] 	= "GCSETTLEMENTGLOBALS.MBIN",
+					["MBIN_FILE_SOURCE"] 	= SettlementGlobalsPath,
 					["EXML_CHANGE_TABLE"] 	=
 					{
                         {
