@@ -141,22 +141,22 @@ AddSettlementExoCraft =
 	</Property>
 ]]
 
---Exocraft can now scan for TradePosts with scanner lvl0
-AddTradingPostExoCraft =
-[[
-	<Property value="GcVehicleScanTableEntry.xml">
-		<Property name="ScanList">
-			<Property value="NMSString0x20.xml">
-				<Property name="Value" value="OUTPOST" />
-			</Property>
-		</Property>
-		<Property name="Name" value="BUILDING_OUTPOST_L" />
-		<Property name="RequiredTech" value="VEHICLE_SCAN" />
-		<Property name="Icon" value="TkTextureResource.xml">
-			<Property name="Filename" value="TEXTURES\UI\HUD\ICONS\MISSIONS\MISSION.DEPOTRAID.DDS" />
-		</Property>
-	</Property>
-]]
+--Exocraft can now scan for TradePosts with scanner lvl0 (has been added into vanilla)
+-- AddTradingPostExoCraft =
+-- [[
+-- 	<Property value="GcVehicleScanTableEntry.xml">
+-- 		<Property name="ScanList">
+-- 			<Property value="NMSString0x20.xml">
+-- 				<Property name="Value" value="OUTPOST" />
+-- 			</Property>
+-- 		</Property>
+-- 		<Property name="Name" value="BUILDING_OUTPOST_L" />
+-- 		<Property name="RequiredTech" value="VEHICLE_SCAN" />
+-- 		<Property name="Icon" value="TkTextureResource.xml">
+-- 			<Property name="Filename" value="TEXTURES\UI\HUD\ICONS\MISSIONS\MISSION.DEPOTRAID.DDS" />
+-- 		</Property>
+-- 	</Property>
+-- ]]
 
 -- Exocraft can now scan for Portal with scanner lvl0
 AddPortalExoCraft =
@@ -352,9 +352,9 @@ AddPortalEventTableVehicles =
   </Property>
 ]]
 
+-- TODO: add portal scan (if possible)
 AddedScanEventsExoCraft = AddCrashedShipExoCraft..AddCrashedFreighterExoCraft..AddDistressedNPCExoCraft..AddFactoryExoCraft..
-				AddHarvesterExoCraft..AddObservatoryExoCraft..AddRadioTowerExoCraft..AddSettlementExoCraft..AddTradingPostExoCraft
-				-- ..AddPortalExoCraft
+				AddHarvesterExoCraft..AddObservatoryExoCraft..AddRadioTowerExoCraft..AddSettlementExoCraft
 
 NMS_MOD_DEFINITION_CONTAINER =
 {

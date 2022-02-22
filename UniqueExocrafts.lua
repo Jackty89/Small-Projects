@@ -88,30 +88,29 @@ NMS_MOD_DEFINITION_CONTAINER =
 		{
 			["MBIN_CHANGE_TABLE"] 	=
 			{
-				{
-					["MBIN_FILE_SOURCE"] 	= GCTechnologyTablePath,
-					["EXML_CHANGE_TABLE"] 	=
-					{
-						{
-							["SPECIAL_KEY_WORDS"] = {"ID","MECH_LASER"},
-							["PRECEDING_KEY_WORDS"] = {"StatBonuses","StatsTypes"},
-							["VALUE_CHANGE_TABLE"] 	=
-							{
-								--LINE 18848
-								{"Bonus", MechSuitLaserDamange}
-							}
-						},
-						{
-							["SPECIAL_KEY_WORDS"] = {"ID","MECH_GUN"},
-							["VALUE_CHANGE_TABLE"] 	=
-							{
-								--Line 19093
-								{"Bonus", MechSuitCanonDamange}
-							}
-						}
-					}
-
-				},
+				-- {
+				-- 	["MBIN_FILE_SOURCE"] 	= GCTechnologyTablePath,
+				-- 	["EXML_CHANGE_TABLE"] 	=
+				-- 	{
+				-- 		{
+				-- 			["SPECIAL_KEY_WORDS"] = {"ID","MECH_LASER"},
+				-- 			["PRECEDING_KEY_WORDS"] = {"StatBonuses","StatsTypes"},
+				-- 			["VALUE_CHANGE_TABLE"] 	=
+				-- 			{
+				-- 				--LINE 18848
+				-- 				{"Bonus", MechSuitLaserDamange}
+				-- 			}
+				-- 		},
+				-- 		{
+				-- 			["SPECIAL_KEY_WORDS"] = {"ID","MECH_GUN"},
+				-- 			["VALUE_CHANGE_TABLE"] 	=
+				-- 			{
+				-- 				--Line 19093
+				-- 				{"Bonus", MechSuitCanonDamange}
+				-- 			}
+				-- 		}
+				-- 	}
+				-- },
 				{
 					["MBIN_FILE_SOURCE"] 	= VehicleGlobalsPath,
 					["EXML_CHANGE_TABLE"] 	=
@@ -141,7 +140,6 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"VehicleBoostSpeedFalloff", MechVehicleBoostSpeedFalloff},
 								{"VehicleBoostTime", MechVehicleBoostTime},
 								{"VehicleBoostRechargeTime", MechVehicleBoostRechargeTime}
-
 							}
 						},
                         {
@@ -173,7 +171,6 @@ NMS_MOD_DEFINITION_CONTAINER =
 							}
 						},
                         {
-
                             ["SPECIAL_KEY_WORDS"] = {"Name","MED_BUGGY"},
 							["VALUE_CHANGE_TABLE"] 	=
 							{
@@ -188,7 +185,6 @@ NMS_MOD_DEFINITION_CONTAINER =
 							}
 						},
                         {
-
                             ["SPECIAL_KEY_WORDS"] = {"Name","TRUCK"},
 							["VALUE_CHANGE_TABLE"] 	=
 							{
@@ -204,7 +200,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 						},
                         {
                             ["SPECIAL_KEY_WORDS"] = {"Name","SUBMARINE" },
-						    ["VALUE_CHANGE_TABLE"] 	=
+							["VALUE_CHANGE_TABLE"] 	=
 							{
 								{"UnderwaterEngineMaxSpeed", NautilonSpeed}, 	-- Original "15"
 								{"UnderwaterEnginePower", NautilonUnderwaterEnginePower},
