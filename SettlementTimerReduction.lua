@@ -8,22 +8,22 @@ Multiplier = "0.1"
 
 NMS_MOD_DEFINITION_CONTAINER =
 {
-	["MOD_FILENAME"] 			= ModeName..GameVersion..".pak",
-	["MOD_DESCRIPTION"]			= ModeName,
-	["MOD_AUTHOR"]				= Author,
-	["NMS_VERSION"]				= GameVersion,
-	["MODIFICATIONS"] 			=
-	{
-		{
-			["MBIN_CHANGE_TABLE"] 	=
-			{
+    ["MOD_FILENAME"]         = ModeName..GameVersion..".pak",
+    ["MOD_DESCRIPTION"]      = ModeName,
+    ["MOD_AUTHOR"]           = Author,
+    ["NMS_VERSION"]          = GameVersion,
+    ["MODIFICATIONS"]        =
+    {
+        {
+            ["MBIN_CHANGE_TABLE"] 	=
+            {
                 {
-					["MBIN_FILE_SOURCE"] 	= SettlementGlobalsPath,
-					["EXML_CHANGE_TABLE"] 	=
-					{
+                    ["MBIN_FILE_SOURCE"] 	= SettlementGlobalsPath,
+                    ["EXML_CHANGE_TABLE"] 	=
+                    {
                         {
-							["MATH_OPERATION"] 		= "*",
-							["REPLACE_TYPE"] 		= "ALL",
+                            ["MATH_OPERATION"] 		= "*",
+                            ["REPLACE_TYPE"] 		= "ALL",
                             ["VALUE_CHANGE_TABLE"] =
                             {
                                 {"BuildingUpgradeTimeInSeconds", Multiplier},
@@ -40,8 +40,8 @@ NMS_MOD_DEFINITION_CONTAINER =
                         },
                         {
                             ["PRECEDING_KEY_WORDS"] = {"SettlementBuildingTimes"},
-							["MATH_OPERATION"] 		= "*",
-							["REPLACE_TYPE"] 		= "ALL",
+                            ["MATH_OPERATION"] 		= "*",
+                            ["REPLACE_TYPE"] 		= "ALL",
                             ["VALUE_CHANGE_TABLE"] =
                             {
                                 {"Settlement_LandingZone", Multiplier},
@@ -61,7 +61,7 @@ NMS_MOD_DEFINITION_CONTAINER =
                             }
                         }
                     }
-				}
+                }
             }
         }
     }
