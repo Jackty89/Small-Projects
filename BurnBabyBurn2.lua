@@ -6,11 +6,18 @@ UnlockableItemTrees = "METADATA\\REALITY\\TABLES\\UNLOCKABLEITEMTREES.MBIN"
 TechnologyTablePath = "METADATA\\REALITY\\TABLES\\NMS_REALITY_GCTECHNOLOGYTABLE.MBIN"
 PlayerWeaponPropertiesTablePath = "METADATA\\REALITY\\TABLES\\PLAYERWEAPONPROPERTIESTABLE.MBIN"
 
-AddFlame = [[
-	<Property value="GcUnlockableItemTreeNode.xml">
-		<Property name="Unlockable" value="FLAME" />
-		<Property name="Children" />
-	</Property>]]
+AddFlame = [[<Property value="GcUnlockableItemTreeNode.xml">
+<Property name="Unlockable" value="FLAME" />
+<Property name="Children" />
+</Property>]]
+
+-- AddMinCharge = [[<Property value="GcStatsBonus.xml">
+-- <Property name="Stat" value="GcStatsTypes.xml">
+--   <Property name="StatsType" value="Weapon_Projectile_MinimumCharge" />
+-- </Property>
+-- <Property name="Bonus" value="1" />
+-- <Property name="Level" value="1" />
+-- </Property>]]
 
 AddDot = [[
 	<Property value="GcStatsBonus.xml">
@@ -40,7 +47,7 @@ AddBounce = [[
 		<Property name="Stat" value="GcStatsTypes.xml">
   			<Property name="StatsType" value="Weapon_Projectile_Bounce" />
 		</Property>
-		<Property name="Bonus" value="2" />
+		<Property name="Bonus" value="100" />
 	<Property name="Level" value="3" />
 	</Property>]]
 
@@ -50,7 +57,7 @@ AddProjectile =
 		<Property name="Stat" value="GcStatsTypes.xml">
   			<Property name="StatsType" value="Weapon_Projectile" />
 		</Property>
-		<Property name="Bonus" value="50" />
+		<Property name="Bonus" value="10" />
 		<Property name="Level" value="1" />
 	</Property>
 ]]
@@ -63,12 +70,12 @@ AddNade = [[
           <Property name="Bonus" value="500" />
           <Property name="Level" value="1" />
         </Property>
-
+       
         <Property value="GcStatsBonus.xml">
           <Property name="Stat" value="GcStatsTypes.xml">
             <Property name="StatsType" value="Weapon_Grenade_Radius" />
           </Property>
-          <Property name="Bonus" value="20" />
+          <Property name="Bonus" value="2" />
           <Property name="Level" value="1" />
         </Property>
 ]]
@@ -107,19 +114,20 @@ NMS_MOD_DEFINITION_CONTAINER =
 						}
                     }
 				},
-				-- { --Optional, if you want to change the look of your projectile
-				-- 	["MBIN_FILE_SOURCE"] 	= PlayerWeaponPropertiesTablePath,
-				-- 	["EXML_CHANGE_TABLE"] 	=
-				-- 	{
-				-- 		{
-				-- 			["SPECIAL_KEY_WORDS"] = {"DefaultProjectile", "FLAMETHROW"},
-				-- 			["VALUE_CHANGE_TABLE"] =
-				-- 			{
-				-- 				{"DefaultProjectile", DefaultProjectile[1]}
-				-- 			}
-				-- 		}
-				-- 	}
-				-- },
+				{
+					["MBIN_FILE_SOURCE"] 	= PlayerWeaponPropertiesTablePath,
+					["EXML_CHANGE_TABLE"] 	=
+					{
+						{
+							["SPECIAL_KEY_WORDS"] = {"DefaultProjectile", "FLAMETHROW"},
+							["VALUE_CHANGE_TABLE"] =
+							{
+								{"WeaponClass", "Grenade"},
+								{"DefaultProjectile", DefaultProjectile[2]}
+							}
+						}
+                    }
+				},
 				{
 					["MBIN_FILE_SOURCE"] 	= TechnologyTablePath,
 					["EXML_CHANGE_TABLE"] 	=
@@ -128,6 +136,11 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["SPECIAL_KEY_WORDS"] = {"ID", "FLAME"},
 							["VALUE_CHANGE_TABLE"] =
 							{
+								{"Chargeable", "True"},
+								{"SubstanceCategory", "Fuel"},
+
+								{"UsesAmmo", "False"},
+								{"AmmoId", ""},
 								{"WikiEnabled", "True"},
 								{"ChargeMultiplier", "2"},
 
@@ -188,11 +201,61 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"Bonus", "12"}
 							}
 						},
+						-- {
+						-- {
+						-- 	["SPECIAL_KEY_WORDS"] = {"ID", "FLAME" },
+						-- 	["PRECEDING_KEY_WORDS"] = {"Weapon_Projectile_Rate"},
+						-- 	["VALUE_CHANGE_TABLE"] =
+						-- 	{
+						-- 		{"Bonus", "100"}
+						-- 	}
+						-- },
+						{
+							["SPECIAL_KEY_WORDS"] = {"ID", "FLAME"},
+							["PRECEDING_KEY_WORDS"] = {"ChargeBy", "NMSString0x10.xml"},
+							["VALUE_CHANGE_TABLE"] =
+							{
+								{"Value", "FUEL1"}
+							}
+						},
+						{
+							["SPECIAL_KEY_WORDS"] = {"ID", "FLAME"},
+							["PRECEDING_KEY_WORDS"] = {"ChargeBy", "NMSString0x10.xml", "NMSString0x10.xml"},
+							["VALUE_CHANGE_TABLE"] =
+							{
+								{"Value", "HOT1"}
+							}
+						},
+						{
+							["SPECIAL_KEY_WORDS"] = {"ID", "FLAME"},
+							["PRECEDING_KEY_WORDS"] = {"ChargeBy", "NMSString0x10.xml", "NMSString0x10.xml" , "NMSString0x10.xml"},
+							["VALUE_CHANGE_TABLE"] =
+							{
+								{"Value", "LAVA1"}
+							}
+						},
+						{
+							["SPECIAL_KEY_WORDS"] = {"ID", "FLAME"},
+							["PRECEDING_KEY_WORDS"] = {"StatBonuses","GcStatsBonus.xml"},
+							["REMOVE"] = "SECTION"
+						},
+						{
+							["SPECIAL_KEY_WORDS"] = {"ID", "FLAME", "StatsType", "Weapon_Projectile_BulletsPerShot"},
+							-- ["PRECEDING_KEY_WORDS"] = {"StatBonuses","GcStatsBonus.xml", "StatsType", "Weapon_Projectile_BulletsPerShot"},
+							["LINE_OFFSET"] = "-2",
+							["REMOVE"] = "SECTION"
+						},
+						{
+							["SPECIAL_KEY_WORDS"] = {"ID", "FLAME", "StatsType", "Weapon_Projectile_MaximumCharge"},
+							-- ["PRECEDING_KEY_WORDS"] = {"StatBonuses","GcStatsBonus.xml", "StatsType", "Weapon_Projectile_BulletsPerShot"},
+							["LINE_OFFSET"] = "-2",
+							["REMOVE"] = "SECTION"
+						},
 						{
 							["SPECIAL_KEY_WORDS"] = {"ID", "FLAME"},
 							["PRECEDING_KEY_WORDS"] = {"StatBonuses"},
-							["ADD"] = AddDot..AddBounce..AddProjectile
-						}
+							["ADD"] = AddDot..AddBounce..AddProjectile..AddNade
+						},
                     }
 				}
             }
