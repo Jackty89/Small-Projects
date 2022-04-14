@@ -1,4 +1,3 @@
-GameVersion = "3_82"
 ModName = "AddDerelictFreighterLootToStore"
 Author = "Jackty89"
 
@@ -34,10 +33,9 @@ StarMapShopEntry = ""
 
 NMS_MOD_DEFINITION_CONTAINER =
 {
-    ["MOD_FILENAME"] = ModName .. GameVersion .. ".pak",
+    ["MOD_FILENAME"] = ModName .. ".pak",
     ["MOD_DESCRIPTION"] = ModName,
     ["MOD_AUTHOR"] = Author,
-    ["NMS_VERSION"] = GameVersion,
     ["MODIFICATIONS"] =
     {
         {

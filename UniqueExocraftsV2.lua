@@ -1,4 +1,3 @@
-GameVersion = "3_8x"
 ModName = "UniqueExoCrafts"
 Description = "A small mod that make exocraft faster but also stand out from eachother"
 
@@ -86,10 +85,9 @@ ExoCraftsNewValues = {
 
 -- HOVBERCraft is an unreleased vehcile this is NOT the Nomad
 NMS_MOD_DEFINITION_CONTAINER = {
-	["MOD_FILENAME"] = ModName .. GameVersion .. ".pak",
+	["MOD_FILENAME"] = ModName.. ".pak",
 	["MOD_DESCRIPTION"] = Description,
 	["MOD_AUTHOR"] = "Jackty89",
-	["NMS_VERSION"] = GameVersion,
 	["MODIFICATIONS"] = {
 		{
 			["MBIN_CHANGE_TABLE"] = {
