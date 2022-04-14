@@ -81,7 +81,6 @@ NMS_MOD_DEFINITION_CONTAINER =
 ["MOD_FILENAME"] 			= ModName..".pak",
 ["MOD_DESCRIPTION"]			= Description,
 ["MOD_AUTHOR"]				= "Jackty89",
-["NMS_VERSION"]				= GameVersion,
 ["MODIFICATIONS"] 			=
 	{
 		{
