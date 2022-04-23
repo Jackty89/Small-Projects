@@ -1,4 +1,4 @@
-ModName = "SlotMaster"
+ModName = "SlotMasterShip"
 Author = "Jackty89"
 
 FilePath = {"METADATA\\GAMESTATE\\DEFAULTINVENTORYBALANCE.MBIN", "METADATA\\GAMESTATE\\DEFAULTINVENTORYBALANCESURVIVAL.MBIN"}
@@ -32,30 +32,6 @@ NMS_MOD_DEFINITION_CONTAINER =
 					["MBIN_FILE_SOURCE"] = InventoryTablePath,
 					["EXML_CHANGE_TABLE"] =
 					{
-						{
-							["SPECIAL_KEY_WORDS"] = {"VehicleSmall", "GcInventoryLayoutGenerationDataEntry.xml"},
-							["VALUE_CHANGE_TABLE"] =
-							{
-								{"MinSlots", "48"},
-								{"MaxSlots", "48"}
-							}
-						},
-						{
-							["SPECIAL_KEY_WORDS"] = {"VehicleMedium", "GcInventoryLayoutGenerationDataEntry.xml"},
-							["VALUE_CHANGE_TABLE"] =
-							{
-								{"MinSlots", "48"},
-								{"MaxSlots", "48"}
-							}
-						},
-						{
-							["SPECIAL_KEY_WORDS"] = {"VehicleLarge", "GcInventoryLayoutGenerationDataEntry.xml"},
-							["VALUE_CHANGE_TABLE"] =
-							{
-								{"MinSlots", "48"},
-								{"MaxSlots", "48"}
-							}
-						},
 						{
 							["PRECEDING_KEY_WORDS"] = {"ShipInventoryMaxUpgradeSize"},
 							["REPLACE_TYPE"] = "ALL",
