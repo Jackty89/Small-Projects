@@ -59,7 +59,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 					{
 						{
 							["PRECEDING_KEY_WORDS"] = {"TradeSettings", "MapShop"},
-                            ["VALUE_CHANGE_TABLE"] =
+							["VALUE_CHANGE_TABLE"] =
 							{
 								{"MinItemsForSale", "6"},
 								{"MaxItemsForSale", "6"}
@@ -69,11 +69,11 @@ NMS_MOD_DEFINITION_CONTAINER =
 							-- , "AlwaysPresentProducts"
 							["PRECEDING_KEY_WORDS"] = {"TradeSettings", "MapShop"},
 							["LINE_OFFSET"] = "+1",
-                            ["ADD"] = StarMapShopEntry
+							["ADD"] = StarMapShopEntry
 						}
-                    }
+					}
 				}
-            }
-        }
-    }
+			}
+		}
+	}
 }

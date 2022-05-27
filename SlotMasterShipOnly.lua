@@ -1,7 +1,6 @@
 ModName = "SlotMasterShip"
 Author = "Jackty89"
 
-FilePath = {"METADATA\\GAMESTATE\\DEFAULTINVENTORYBALANCE.MBIN", "METADATA\\GAMESTATE\\DEFAULTINVENTORYBALANCESURVIVAL.MBIN"}
 InventoryTablePath = "METADATA\\REALITY\\TABLES\\INVENTORYTABLE.MBIN"
 
 TechWidth = 8
@@ -72,19 +71,6 @@ NMS_MOD_DEFINITION_CONTAINER =
                                 {"B", "48"},
                                 {"A", "48"},
                                 {"S", "48"}
-                            }
-                        }
-                    }
-                },
-                {
-                    ["MBIN_FILE_SOURCE"] = FilePath,
-                    ["EXML_CHANGE_TABLE"] =
-                    {
-                        {
-                            ["VALUE_CHANGE_TABLE"] =
-                            {
-                                {"PlayerPersonalInventoryTechWidth", TechWidth},
-                                {"PlayerPersonalInventoryTechHeight", TechHeight}
                             }
                         }
                     }
