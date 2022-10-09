@@ -1,8 +1,8 @@
 ModName = "FuelEconomy"
 Author = "Jackty89"
 
-GcRecipeTable = "METADATA\\REALITY\\TABLES\\NMS_REALITY_GCRECIPETABLE.MBIN"
-GcProductTable = "METADATA\\REALITY\\TABLES\\NMS_REALITY_GCPRODUCTTABLE.MBIN"
+GcRecipeTable = "METADATA/REALITY/TABLES/NMS_REALITY_GCRECIPETABLE.MBIN"
+GcProductTable = "METADATA/REALITY/TABLES/NMS_REALITY_GCPRODUCTTABLE.MBIN"
 
 SubstanceOrProduct = {"Substance", "Product"}
             -- Tritium,     Deutrium   , Di-Hydrogen

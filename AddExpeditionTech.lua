@@ -66,7 +66,7 @@ function AddTechToTree(id)
     }
 end
 
-for id in Ids do
+for _key, id in Ids do
     print(id)
     AddTech(id)
     AddTechToTree(id)

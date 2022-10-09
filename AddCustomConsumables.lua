@@ -23,39 +23,110 @@ Languages =
 -- SubstanceOrProduct[1] = Substance, ...[2] = Product
 SubstanceOrProduct = { ["Substance"] = "Substance", ["Product"] =  "Product"}
 
+--Data to create new consumable product
 AddNewConsumableProducts =
 {
     {
-        ["ProductID"]           = "BLUNITS",
+        ["ProductID"]           = "BLUNITS1K",
         ["Requirements"]        =
         {
             --product/subsid, amount, prod/subs identifier
-            {"LAUNCHSUB",      "5", SubstanceOrProduct["Substance"]},
-            {"TECH_COMP",      "2", SubstanceOrProduct["Product"]},
+            {"YELLOW2",      "10", SubstanceOrProduct["Substance"]},
+            {"CREDITCARD1K", "1", SubstanceOrProduct["Product"]},
         },
         ["Stacksize"]           = "10", --how many can fit in a stack
         ["Price"]               = "1",  --price as how much thsi product sells for
-        ["NewProductIcon"]      = "TEXTURES/UI/FRONTEND/ICONS/MISSIONS/MISSION.COMMUNITY.OFF.DDS", -- your path to custom or existing texture
+        ["NewProductIcon"]      = "TEXTURES/UI/FRONTEND/ICONS/CURRENCIES/CURRENCIES.BLUNITS.DDS", -- your path to custom or existing texture
         ["RewardData"]          =
         {
 
-            "R_BLUNTIS", --Reward ID
+            "R_BLUNTIS1K", --Reward ID
             "GiveAll",   --RewardChoice - not sure how it works but well, look it up and test it
             {
                 --reward chance, minvalu, maxval, currency type (there are only 3 reward types), so technically you could add 10 rewards of unit with different %'s and use SelectOne or wahtever its called as rewardchoice
-                {"100", "1000", "5000", "Units"},    --units
-                {"50", "1000", "5000", "Nanites"},  --nanites
-                {"10", "1000", "5000", "Specials"}, --quicksilver
+                {"100", "1000", "1000", "Units"},    --units
             }
         },
         ["Languages"] =
-        {   
+        {
             --language identifier, name, substitle, description
-            {Languages["English"], "Credit card", "no idea what subtitle does", "This credit card gives you units, nanites and quicksilver"}
+            {Languages["English"], "Blunits 1k", "bluntis 1k", "1k blunits card"}
+        }
+    },
+    {
+        ["ProductID"]           = "BLNANI1K",
+        ["Requirements"]        =
+        {
+            --product/subsid, amount, prod/subs identifier
+            {"EX_GREEN",     "10", SubstanceOrProduct["Substance"]},
+            {"CREDITCARD1K", "1", SubstanceOrProduct["Product"]},
+        },
+        ["Stacksize"]           = "10", --how many can fit in a stack
+        ["Price"]               = "1",  --price as how much thsi product sells for
+        ["NewProductIcon"]      = "TEXTURES/UI/FRONTEND/ICONS/CURRENCIES/CURRENCIES.NANITEZ.DDS", -- your path to custom or existing texture
+        ["RewardData"]          =
+        {
+
+            "R_BLNANI1K", --Reward ID
+            "GiveAll",   --RewardChoice - not sure how it works but well, look it up and test it
+            {
+                --reward chance, minvalu, maxval, currency type (there are only 3 reward types), so technically you could add 10 rewards of unit with different %'s and use SelectOne or wahtever its called as rewardchoice
+                {"50", "1000", "5000", "Nanites"}  --nanites
+            }
+        },
+        ["Languages"] =
+        {
+            --language identifier, name, substitle, description
+            {Languages["English"], "BLNANI1K 1k", "BLNANI1K 1k", "1k BLNANI1K card"}
+        }
+    },
+    {
+        ["ProductID"]           = "BLQUICK1K",
+        ["Requirements"]        =
+        {
+            --product/subsid, amount, prod/subs identifier
+            {"EX_BLUE",      "10", SubstanceOrProduct["Substance"]},
+            {"CREDITCARD1K", "1", SubstanceOrProduct["Product"]},
+        },
+        ["Stacksize"]           = "10", --how many can fit in a stack
+        ["Price"]               = "1",  --price as how much thsi product sells for
+        ["NewProductIcon"]      = "TEXTURES/UI/FRONTEND/ICONS/CURRENCIES/CURRENCIES.QUICKSILVER.DDS", -- your path to custom or existing texture
+        ["RewardData"]          =
+        {
+
+            "R_BLQUICK1K", --Reward ID
+            "GiveAll",   --RewardChoice - not sure how it works but well, look it up and test it
+            {
+                --reward chance, minvalu, maxval, currency type (there are only 3 reward types), so technically you could add 10 rewards of unit with different %'s and use SelectOne or wahtever its called as rewardchoice
+                {"10", "1000", "5000", "Specials"} --quicksilver
+            }
+        },
+        ["Languages"] =
+        {
+            --language identifier, name, substitle, description
+            {Languages["English"], "BLQUICK1K 1k", "BLQUICK1K 1k", "1k BLQUICK1K card"}
         }
     }
 }
 
+--Data to create new product
+AddNewCustomProducts =
+{
+    {
+        ["ProductID"]           = "CREDITCARD1K",
+        ["Stacksize"]           = "25", --how many can fit in a stack
+        ["Price"]               = "1000",  --price as how much thsi product sells for
+        ["NewProductIcon"]      = "TEXTURES/UI/FRONTEND/ICONS/UPDATE3/FARMPROD.9.DDS", -- your path to custom or existing texture
+        ["Languages"] =
+        {
+            --language identifier, name, substitle, description
+            {Languages["English"], "Micro chip", "Some funny subtitle", "Componenent needed for crafting."}
+        }
+    }
+}
+----------------------------------------------------------------------------------------------
+-------------------------------     CODE LOGIC START      ------------------------------------
+----------------------------------------------------------------------------------------------
 ModName                  = "AddCustomConsumables"
 Author                   = "jackty89"
 ModDescription           = "template mod for consumable products that offer currency rewards"
@@ -91,7 +162,7 @@ NMS_MOD_DEFINITION_CONTAINER =
                     ["EXML_CHANGE_TABLE"] 	=
                     {
                     }
-                },                
+                },
                 {
                     ["MBIN_FILE_SOURCE"] 	= "METADATA/GAMESTATE/DEFAULTSAVEDATA.MBIN",
                     ["EXML_CHANGE_TABLE"] 	=
@@ -112,6 +183,12 @@ NMS_MOD_DEFINITION_CONTAINER =
                             ]]
                         }
                     }
+                },
+                {
+                    ["MBIN_FILE_SOURCE"] 	= "METADATA/REALITY/DEFAULTREALITY.MBIN",
+                    ["EXML_CHANGE_TABLE"] 	=
+                    {
+                    }
                 }
             }
         }
@@ -119,10 +196,17 @@ NMS_MOD_DEFINITION_CONTAINER =
 }
 
 function CreateNewProduct(NewProductID, NewProductName, NewProductNameLc, NewProductSub, NewProductDesc, NewProductStackSize, NewProductValue, NewProductIcon, NewProductRequirements)
+    local RequirementsString = ""
+    if NewProductRequirements ~= "" then
+        RequirementsString = [[<Property name="Requirements">]]..NewProductRequirements..[[</Property>]]
+    else
+        RequirementsString = [[<Property name="Requirements" />]]
+    end
+
     local result =
     [[
         <Property value="GcProductData.xml">
-            <Property name="Id" value="]]..NewProductID..[[" />
+            <Property name="ID" value="]]..NewProductID..[[" />
             <Property name="Name" value="]]..NewProductName..[[" />
             <Property name="NameLower" value="]]..NewProductNameLc..[[" />
             <Property name="Subtitle" value="VariableSizeString.xml">
@@ -135,14 +219,23 @@ function CreateNewProduct(NewProductID, NewProductName, NewProductNameLc, NewPro
             <Property name="GroupID" value="" />
             <Property name="DebrisFile" value="TkModelResource.xml">
                 <Property name="Filename" value="MODELS/EFFECTS/DEBRIS/TERRAINDEBRIS/TERRAINDEBRIS4.SCENE.MBIN" />
+                <Property name="ResHandle" value="GcResource.xml">
+                    <Property name="ResourceID" value="0" />
+                </Property>
             </Property>
             <Property name="BaseValue" value="]]..NewProductValue..[[" />
             <Property name="Level" value="0" />
             <Property name="Icon" value="TkTextureResource.xml">
                 <Property name="Filename" value="]]..NewProductIcon..[[" />
+                <Property name="ResHandle" value="GcResource.xml">
+                    <Property name="ResourceID" value="0" />
+                </Property>
             </Property>
             <Property name="HeroIcon" value="TkTextureResource.xml">
                 <Property name="Filename" value="" />
+                <Property name="ResHandle" value="GcResource.xml">
+                    <Property name="ResourceID" value="0" />
+                </Property>
             </Property>
             <Property name="Colour" value="Colour.xml">
             <Property name="R" value="0.101960786" />
@@ -168,9 +261,7 @@ function CreateNewProduct(NewProductID, NewProductName, NewProductNameLc, NewPro
             <Property name="DefaultCraftAmount" value="1" />
             <Property name="CraftAmountStepSize" value="1" />
             <Property name="CraftAmountMultiplier" value="1" />
-            <Property name="Requirements">
-            ]]..NewProductRequirements..[[
-            </Property>
+            ]]..RequirementsString..[[
             <Property name="AltRequirements" />
             <Property name="Cost" value="GcItemPriceModifiers.xml">
                 <Property name="SpaceStationMarkup" value="0" />
@@ -197,7 +288,7 @@ function CreateNewProduct(NewProductID, NewProductName, NewProductNameLc, NewPro
             <Property name="GoodForSelling" value="False" />
             <Property name="GiveRewardOnSpecialPurchase" value="" />
             <Property name="EggModifierIngredient" value="False" />
-            <Property name="IsTechBox" value="False" />
+            <Property name="IsTechbox" value="False" />
         </Property>
     ]]
 
@@ -209,7 +300,7 @@ function CreateProductRequirement(IngedientID, IngredientType, IngredientAmount)
     [[
         <Property value="GcTechnologyRequirement.xml">
             <Property name="ID" value="]]..IngedientID..[[" />
-            <Property name="InventoryType" value="GcInventoryType.xml">
+            <Property name="Type" value="GcInventoryType.xml">
                 <Property name="InventoryType" value="]]..IngredientType..[[" />
             </Property>
         <Property name="Amount" value="]]..IngredientAmount..[[" />
@@ -279,7 +370,19 @@ function CreateKnowProduct(ProductID)
     ]]
 end
 
---Add New Products to the product table
+function CreateShopEntry(NewId)
+    return [[
+        <Property value="NMSString0x10.xml">
+            <Property name="Value" value="]]..NewId..[[" />
+        </Property>
+    ]]
+end
+
+----------------------------------------------------------------------------------------------
+-------------------------------     Product creation     -------------------------------------
+----------------------------------------------------------------------------------------------
+
+-------------------------------     Consumable Product   -------------------------------------
 local AddToProductTable = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][1]["EXML_CHANGE_TABLE"]
 for i = 1, #AddNewConsumableProducts do
     local Requirements        = {}
@@ -315,9 +418,48 @@ for i = 1, #AddNewConsumableProducts do
     }
 end
 
+-------------------------------     Non-Consumable Product   -------------------------------------
+local AddToDefaultReality = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][6]["EXML_CHANGE_TABLE"]
+for i = 1, #AddNewCustomProducts do
+    local ProductID = string.upper(AddNewCustomProducts[i]["ProductID"])
+    local ProductName         = string.upper(ProductID).."_NAME"
+    local ProductNameLC       = string.upper(ProductID).."_NAME_L"
+    local ProductDesc         = string.upper(ProductID).."_DESC"
+    local ProductSub          = string.upper(ProductID).."_SUB"
 
---Adds the new Product as a consumable to consumable table
-local AddToConsumableTable = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][2]["EXML_CHANGE_TABLE"]
+    local ProductStackSize    = AddNewCustomProducts[i]["Stacksize"]
+    local ProductValue        = AddNewCustomProducts[i]["Price"]
+    local ProductIcon         = AddNewCustomProducts[i]["NewProductIcon"]
+
+    local ProductRequirements = ""
+
+    --adds product to product table
+    AddToProductTable[#AddToProductTable + 1]  =
+    {
+        ["PRECEDING_KEY_WORDS"] = {"Table"},
+        ["ADD"] = CreateNewProduct(ProductID, ProductName, ProductNameLC, ProductSub, ProductDesc, ProductStackSize, ProductValue, ProductIcon, ProductRequirements)
+    }
+
+    -------- Adds products to store  this can be added to a seperate loop if not all products should be added------------
+    local ShopEntry = CreateShopEntry(ProductID)
+    AddToDefaultReality[#AddToDefaultReality + 1]  =
+    {
+        ["PRECEDING_KEY_WORDS"] = {"TradeSettings", "SpaceStation", "AlwaysPresentProducts"},
+        ["ADD"] = ShopEntry
+    }
+    AddToDefaultReality[#AddToDefaultReality + 1]  =
+    {
+        ["PRECEDING_KEY_WORDS"] = {"TradeSettings", "Shop", "AlwaysPresentProducts"},
+        ["ADD"] = ShopEntry
+    }
+end
+
+----------------------------------------------------------------------------------------------
+-------------------------------     Consumable and reward creation     -----------------------
+----------------------------------------------------------------------------------------------
+------------------------------- This also adds the recipe to known recipes -------------------
+
+local AddToConsumableTable    = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][2]["EXML_CHANGE_TABLE"]
 local AddToRewardTable        = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][3]["EXML_CHANGE_TABLE"]
 local AddToDefaultSaveData    = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][4]["EXML_CHANGE_TABLE"]
 for i = 1, #AddNewConsumableProducts do
@@ -342,27 +484,28 @@ for i = 1, #AddNewConsumableProducts do
 
         table.insert(Rewards, CreateCurrecyRewardItem(PercentageChance, AmountMin, AmountMax, CurrencyType))
     end
-
+    -- Create new reward entry
     AddToRewardTable[#AddToRewardTable + 1] =
     {
         ["PRECEDING_KEY_WORDS"] = {"GenericTable"},
         ["ADD"] = CreateRewardEntry(RewardId, RewardChoice,  table.concat(Rewards))
     }
-
+    --Adds recipe to know products
     AddToDefaultSaveData[#AddToDefaultSaveData + 1] =
     {
         ["PRECEDING_KEY_WORDS"] = {"KnownProducts"},
         ["ADD"] = CreateKnowProduct(ProductID)
     }
-
+    --- Adds the new consumable
     AddToConsumableTable[#AddToConsumableTable + 1] =
     {
         ["PRECEDING_KEY_WORDS"] = {"Table"},
         ["ADD"] = CreateNewConsumable(ProductID, RewardId)
     }
 end
-
---language file creation
+----------------------------------------------------------------------------------------------
+-------------------------------     Language file creation     -------------------------------
+----------------------------------------------------------------------------------------------
 function NewLanguagueFile(DescriptionEntries)
     return
     [[<?xml version="1.0" encoding="utf-8"?>
@@ -394,36 +537,36 @@ function NewDescriptionText(newDescId, LanguageEntries)
     ]]
 end
 
-function FillCustomlangFile()
+function FillCustomlangFile(Data)
     local NewProductLangEntries = {}
 
-    for i = 1, #AddNewConsumableProducts do
-        local ProductID = string.upper(AddNewConsumableProducts[i]["ProductID"])
+    for i = 1, #Data do
+        local ProductID = string.upper(Data[i]["ProductID"])
         local DescriptionEntries = {}
         local SubtitleEntries = {}
         local NameLCEntries = {}
         local NameEntries = {}
 
-        local Languages = AddNewConsumableProducts[i]["Languages"]
+        local LanguagesData = Data[i]["Languages"]
 
         local NameID = ProductID.."_NAME"
         local NameLCID = ProductID.."_NAME_L"
         local SubID = ProductID.."_SUB"
         local DescID = ProductID.."_DESC"
 
-        for j = 1, #Languages do
-            local Language = Languages[j][1]
+        for j = 1, #LanguagesData do
+            local Language = LanguagesData[j][1]
 
-            local NameLC = Languages[j][2]
+            local NameLC = LanguagesData[j][2]
             table.insert(NameLCEntries, NewLanguageEntry(Language, NameLC))
 
             local Name = string.upper(NameLC)
             table.insert(NameEntries, NewLanguageEntry(Language, Name))
 
-            local NewSubTitle = Languages[j][3]
+            local NewSubTitle = LanguagesData[j][3]
             table.insert(SubtitleEntries, NewLanguageEntry(Language, NewSubTitle))
 
-            local NewDescription = Languages[j][4]
+            local NewDescription = LanguagesData[j][4]
             table.insert(DescriptionEntries, NewLanguageEntry(Language, NewDescription))
         end
 
@@ -436,11 +579,31 @@ function FillCustomlangFile()
     return NewLanguagueFile(table.concat(NewProductLangEntries))
 end
 
-local AddCsutomLanguageFiles = NMS_MOD_DEFINITION_CONTAINER["ADD_FILES"]
-for Key , Language in pairs(Languages) do
-    AddCsutomLanguageFiles[#AddCsutomLanguageFiles +1] =
+local AddCustomLanguageFiles = NMS_MOD_DEFINITION_CONTAINER["ADD_FILES"]
+for Key , _Language in pairs(Languages) do
+
+    --- Creating a singulare list that contains all new productID's and their langauge strings
+    local LanguageData = { ["ProductID"] = "" , ["Languages"] = {}}
+    for i = 1, #AddNewConsumableProducts do
+        LanguageData[#LanguageData+1] =
+        {
+            ["ProductID"] = AddNewConsumableProducts[i]["ProductID"],
+            ["Languages"] = AddNewConsumableProducts[i]["Languages"] ,
+        }
+    end
+
+    for j = 1, #AddNewCustomProducts do
+        LanguageData[#LanguageData+1] =
+        {
+            ["ProductID"] = AddNewCustomProducts[j]["ProductID"],
+            ["Languages"] = AddNewCustomProducts[j]["Languages"] ,
+        }
+    end
+
+    AddCustomLanguageFiles[#AddCustomLanguageFiles +1] =
     {
-        ["FILE_DESTINATION"] 	=	"LANGUAGE\\NMS_"..CustomLanguageTag.."_"..Key..".EXML",
-        ["FILE_CONTENT"] 		=	FillCustomlangFile()
+        ["FILE_DESTINATION"]    =   "LANGUAGE\\NMS_"..CustomLanguageTag.."_"..Key..".EXML",
+        ["FILE_CONTENT"]        =   FillCustomlangFile(LanguageData)
     }
+
 end
