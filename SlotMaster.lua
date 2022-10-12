@@ -104,57 +104,6 @@ NMS_MOD_DEFINITION_CONTAINER =
 
 local ChangesToInventoryTable = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][1]["EXML_CHANGE_TABLE"]
 
-function ImproveSuitInventory()
-    EditInventory("Suit", MaxSlot)
-end
-
-function ImproveShipInventory()
-    for _key, shipSize in ipairs(ShipSizes) do
-        EditInventory(shipSize, MaxSlot)
-    end
-    for _key, shipType in ipairs(ShipTypes) do
-        ImproveClassSlotLimit(shipType)
-    end
-end
-
-function ImproveVehicleInventory()
-    for _key, vehicleSize in ipairs(VehicleSizes) do
-        EditInventory(vehicleSize, true)
-    end
-end
-
-function ImproveWeaponInventory()
-    for _key, weaponSize in ipairs(WeaponSizes) do
-        EditInventory(weaponSize, MaxSlot)
-    end
-
-    ChangesToInventoryTable[#ChangesToInventoryTable + 1] =
-    {
-        ["SPECIAL_KEY_WORDS"] = {"WeaponInventoryMaxUpgradeSize", "GcWeaponInventoryMaxUpgradeCapacity.xml"},
-        ["VALUE_CHANGE_TABLE"] =
-        {
-            {"C", MaxTech},
-            {"B", MaxTech},
-            {"A", MaxTech},
-            {"S", MaxTech}
-        }
-    }
-end
-
-function ImproveFreighterInventory()
-    for _key, freighterSize in ipairs(FreighterSizes) do
-        EditInventory(freighterSize, MaxSlot)
-    end
-    ImproveClassSlotLimit("Freighter")
-end
-
-function ImproveAlienInventory()
-    for _key, alienSize in ipairs(AlienSizes) do
-        EditInventory(alienSize, MaxSlot)
-    end
-    ImproveClassSlotLimit("Alien")
-end
-
 function EditInventory(type, maxSlot)
     if maxSlot then
         ChangesToInventoryTable[#ChangesToInventoryTable + 1] =
@@ -224,6 +173,57 @@ function ImproveClassSlotLimit(type)
             {"S", MaxTech}
         }
     }
+end
+
+function ImproveSuitInventory()
+    EditInventory("Suit", MaxSlot)
+end
+
+function ImproveShipInventory()
+    for _key, shipSize in ipairs(ShipSizes) do
+        EditInventory(shipSize, MaxSlot)
+    end
+    for _key, shipType in ipairs(ShipTypes) do
+        ImproveClassSlotLimit(shipType)
+    end
+end
+
+function ImproveVehicleInventory()
+    for _key, vehicleSize in ipairs(VehicleSizes) do
+        EditInventory(vehicleSize, true)
+    end
+end
+
+function ImproveWeaponInventory()
+    for _key, weaponSize in ipairs(WeaponSizes) do
+        EditInventory(weaponSize, MaxSlot)
+    end
+
+    ChangesToInventoryTable[#ChangesToInventoryTable + 1] =
+    {
+        ["SPECIAL_KEY_WORDS"] = {"WeaponInventoryMaxUpgradeSize", "GcWeaponInventoryMaxUpgradeCapacity.xml"},
+        ["VALUE_CHANGE_TABLE"] =
+        {
+            {"C", MaxTech},
+            {"B", MaxTech},
+            {"A", MaxTech},
+            {"S", MaxTech}
+        }
+    }
+end
+
+function ImproveFreighterInventory()
+    for _key, freighterSize in ipairs(FreighterSizes) do
+        EditInventory(freighterSize, MaxSlot)
+    end
+    ImproveClassSlotLimit("Freighter")
+end
+
+function ImproveAlienInventory()
+    for _key, alienSize in ipairs(AlienSizes) do
+        EditInventory(alienSize, MaxSlot)
+    end
+    ImproveClassSlotLimit("Alien")
 end
 
 if ImproveShip then
