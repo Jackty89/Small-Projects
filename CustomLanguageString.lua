@@ -7,23 +7,23 @@ SubstanceOrProduct = { ["Substance"] = "Substance", ["Product"] =  "Product"}
 
 Languages =
 {
-    ["English"] = "English",
-    ["French"] = "French",
-    ["Italian"] = "Italian",
-    ["German"] = "German",
-    ["Spanish"] = "Spanish",
-    ["Russian"] = "Russian",
-    ["Polish"] = "Polish",
-    ["Dutch"] = "Dutch",
-    ["Portuguese"] = "Portuguese",
-    ["LatinAmeraicanSpanish"] = "LatinAmericanSpanish", --this is not a typo
-    ["BrazilianPortuguese"] = "BrazilianPortuguese",
-    ["SimplifiedChinese"] = "SimplifiedChinese",
-    ["TraditionalChinese"] = "TraditionalChinese",
-    ["TencentChinese"] = "TencentChinese",
-    ["Korean"] = "Korean",
-    ["Japanese"] = "Japanese",
-    ["USEnglish"] = "USEnglish"
+    ["EN"] = "English",
+    ["FR"] = "French",
+    ["IT"] = "Italian",
+    ["DE"] = "German",
+    ["ES"] = "Spanish",
+    ["RU"] = "Russian",
+    ["PL"] = "Polish",
+    ["NL"] = "Dutch",
+    ["PT"] = "Portuguese",
+    ["LA"] = "LatinAmeraicanSpanish", --this is not a typo
+    ["BR"] = "BrazilianPortuguese",
+    ["Z1"] = "SimplifiedChinese",
+    ["ZH"] = "TraditionalChinese",
+    ["Z2"] = "TencentChinese",
+    ["KO"] = "Korean",
+    ["JA"] = "Japanese",
+    ["US"] = "USEnglish"
 }
 
 -- Product Id's can be found really easy with ModdingStation (see nexus)
@@ -50,8 +50,8 @@ ChangeDescIDandDescriptionForProductsArray =
         ["ItemType"]     = SubstanceOrProduct["Product"],
         ["LanguageData"] =
         {
-            {Languages["English"], "", "", "Weeeeeeeeeeeee custom text"},
-            {Languages["French"], "", "",  "C'est une text en francais"}
+            {Languages["EN"], "", "", "Weeeeeeeeeeeee custom text"},
+            {Languages["FR"], "", "",  "C'est une text en francais"}
         }
     },
     {
@@ -59,9 +59,9 @@ ChangeDescIDandDescriptionForProductsArray =
         ["ItemType"]     = SubstanceOrProduct["Substance"],
         ["LanguageData"] =
         {
-            {Languages["English"], "Cream", "some cream sub", "Bone cream... BONE cream... What bone, from where, so many questions such few awnsers and how do you even 'creamefy' bones. Yet another question with no awnser."},
-            {Languages["Italian"], "italian cream", "italian cream sub", "ITALIAN Bone cream... BONE cream... What bone, from where, so many questions such few awnsers and how do you even 'creamefy' bones. Yet another question with no awnser."},
-            {Languages["USEnglish"], "Cream", "\'merica", "some desription in said language"}
+            {Languages["EN"], "Cream", "some cream sub", "Bone cream... BONE cream... What bone, from where, so many questions such few awnsers and how do you even 'creamefy' bones. Yet another question with no awnser."},
+            {Languages["IT"], "italian cream", "italian cream sub", "ITALIAN Bone cream... BONE cream... What bone, from where, so many questions such few awnsers and how do you even 'creamefy' bones. Yet another question with no awnser."},
+            {Languages["US"], "Cream", "\'merica", "some desription in said language"}
         }
     }
 }
@@ -83,7 +83,7 @@ NMS_MOD_DEFINITION_CONTAINER =
             ["MBIN_CHANGE_TABLE"] 	=
             {
                 {
-                    ["MBIN_FILE_SOURCE"] 	= "METADATA\\REALITY\\TABLES\\NMS_REALITY_GCPRODUCTTABLE.MBIN",
+                    ["MBIN_FILE_SOURCE"] 	= "METADATA/REALITY/TABLES/NMS_REALITY_GCPRODUCTTABLE.MBIN",
                     ["EXML_CHANGE_TABLE"] 	=
                     {
                     }
@@ -208,10 +208,10 @@ function FillCustomlangFile()
 end
 
 local AddCsutomLanguageFiles = NMS_MOD_DEFINITION_CONTAINER["ADD_FILES"]
-for Key , _Language in pairs(Languages) do
+for _, Language in pairs(Languages) do
     AddCsutomLanguageFiles[#AddCsutomLanguageFiles +1] =
     {
-        ["FILE_DESTINATION"] 	=	"LANGUAGE\\NMS_"..CustomLanguageTag.."_"..Key..".EXML",
+        ["FILE_DESTINATION"] 	=	"LANGUAGE/NMS_"..CustomLanguageTag.."_"..Language..".EXML",
         ["FILE_CONTENT"] 		=	FillCustomlangFile()
     }
 end

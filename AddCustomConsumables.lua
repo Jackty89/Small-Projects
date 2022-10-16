@@ -602,7 +602,7 @@ for Key , _Language in pairs(Languages) do
 
     AddCustomLanguageFiles[#AddCustomLanguageFiles +1] =
     {
-        ["FILE_DESTINATION"]    =   "LANGUAGE\\NMS_"..CustomLanguageTag.."_"..Key..".EXML",
+        ["FILE_DESTINATION"]    =   "LANGUAGE/NMS_"..CustomLanguageTag.."_"..Key..".EXML",
         ["FILE_CONTENT"]        =   FillCustomlangFile(LanguageData)
     }
 
