@@ -1,8 +1,8 @@
 ModName = "AddExpeditionTech"
 Author = "Jackty89"
 
-UnlockableItemTrees = "METADATA\\REALITY\\TABLES\\UNLOCKABLEITEMTREES.MBIN"
-TechnologyTablePath = "METADATA\\REALITY\\TABLES\\NMS_REALITY_GCTECHNOLOGYTABLE.MBIN"
+UnlockableItemTrees = "METADATA/REALITY/TABLES/UNLOCKABLEITEMTREES.MBIN"
+TechnologyTablePath = "METADATA/REALITY/TABLES/NMS_REALITY_GCTECHNOLOGYTABLE.MBIN"
 
 Ids =  {"LAUNCHER_SPEC", "SHIPJUMP_SPEC", "HYPERDRIVE_SPEC"}
 
@@ -19,7 +19,7 @@ NMS_MOD_DEFINITION_CONTAINER =
                 {
                     ["MBIN_FILE_SOURCE"] 	= UnlockableItemTrees,
                     ["EXML_CHANGE_TABLE"] 	=
-                    {                     
+                    {
                     }
                 },
                 {
@@ -66,7 +66,7 @@ function AddTechToTree(id)
     }
 end
 
-for _key, id in Ids do
+for _key, id in pairs(Ids) do
     print(id)
     AddTech(id)
     AddTechToTree(id)

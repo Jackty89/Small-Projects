@@ -1,34 +1,9 @@
 ModName = "BuySentinelMap"
 Author = "Jackty89"
 
-ProductTablePath = "METADATA\\REALITY\\TABLES\\NMS_REALITY_GCPRODUCTTABLE.MBIN"
-RewardTablePath = "METADATA\\REALITY\\TABLES\\REWARDTABLE.MBIN"
-ConsumeableItemTablePath = "METADATA\\REALITY\\TABLES\\CONSUMABLEITEMTABLE.MBIN"
-DefaultRealityPath = "METADATA\\REALITY\\DEFAULTREALITY.MBIN"
-
+DefaultRealityPath = "METADATA/REALITY/DEFAULTREALITY.MBIN"
 
 HiveMapId = "CHART_HIVE"
-
-
-
-function CreateStarMapConsumable(NewId, NewRewardId)
-	return
-	[[
-		<Property value="GcConsumableItem.xml">
-			<Property name="ID" value="]]..NewId..[[" />
-			<Property name="RewardID" value="]]..NewRewardId..[[" />
-			<Property name="TutorialRewardID" value="" />
-			<Property name="ButtonLocID" value="UI_CHART_LABEL" />
-			<Property name="ButtonSubLocID" value="UI_CHART_SUB" />
-			<Property name="CloseInventoryWhenUsed" value="True" />
-			<Property name="AudioEventOnOpen" value="GcAudioWwiseEvents.xml">
-				<Property name="AkEvent" value="INVALID_EVENT" />
-			</Property>
-			<Property name="RewardFailedLocID" value="" />
-			<Property name="DestroyItemWhenConsumed" value="True" />
-		</Property>
-	]]
-end
 
 function CreateMapShopEntry(NewId)
 	return
@@ -40,8 +15,6 @@ function CreateMapShopEntry(NewId)
 end
 
 StarMapShopEntry = CreateMapShopEntry(HiveMapId)
-
-
 
 NMS_MOD_DEFINITION_CONTAINER =
 {
